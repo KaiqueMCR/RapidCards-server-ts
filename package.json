@@ -1,0 +1,9 @@
+{
+  "name": "RapidCards-server-ts",
+  "version": "1.0.0",
+  "description": "Backend repo of RapidCards application",
+  "main": "server.ts",
+  "repository": "https://github.com/KaiqueMCR/RapidCards-server-ts",
+  "author": "KaiqueMCR <kaiquedev404@gmail.com>",
+  "license": "MIT"
+}
