@@ -17,5 +17,11 @@
     "nodemon": "^2.0.18",
     "sucrase": "^3.23.0",
     "typescript": "^4.7.4"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "mongoose": "^6.4.2"
   }
 }
