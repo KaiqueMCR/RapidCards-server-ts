@@ -1,9 +1,15 @@
 {
-  "name": "RapidCards-server-ts",
+  "name": "rapidcards-server-ts",
   "version": "1.0.0",
   "description": "Backend repo of RapidCards application",
   "main": "server.ts",
   "repository": "https://github.com/KaiqueMCR/RapidCards-server-ts",
   "author": "KaiqueMCR <kaiquedev404@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^8.19.0",
+    "nodemon": "^2.0.18",
+    "sucrase": "^3.23.0",
+    "typescript": "^4.7.4"
+  }
 }
