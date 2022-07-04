@@ -8,8 +8,11 @@ interface TopicsRequest extends Request {
 }
 
 export async function getPostsByTopic (req: TopicsRequest, res: Response) {
-  const { topics } = req.body
-  const postByTopics = await Post.find({ topics: { $all: topics } })
-
-  return res.json(postByTopics)
+  try {
+    const { topics } = req.body
+    const postByTopics = await Post.find({ topics: { $all: topics } })
+    return res.json(postByTopics)
+  } catch (error) {
+    res.json(error)
+  }
 }

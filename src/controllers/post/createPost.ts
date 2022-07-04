@@ -16,15 +16,18 @@ interface RequestBody extends Request {
 }
 
 export async function createPost (req: RequestBody, res: Response) {
-  const { title, content, imageURL, topics, author } = req.body
-  const post = new Post({
-    title,
-    content,
-    imageURL,
-    topics,
-    author
-  })
-  const newPost = await post.save()
-
-  return res.json(newPost)
+  try {
+    const { title, content, imageURL, topics, author } = req.body
+    const post = new Post({
+      title,
+      content,
+      imageURL,
+      topics,
+      author
+    })
+    const newPost = await post.save()
+    return res.json(newPost)
+  } catch (error) {
+    res.json(error)
+  }
 }
