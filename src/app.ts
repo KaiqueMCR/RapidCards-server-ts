@@ -4,6 +4,8 @@ import express from 'express'
 import cors from 'cors'
 import mongoose from 'mongoose'
 
+import apiRoute from './routes/api'
+
 dotenv.config()
 
 class App {
@@ -13,6 +15,7 @@ class App {
     this.express = express()
     this.middlewares()
     this.database()
+    this.routes()
   }
 
   private middlewares () {
@@ -22,6 +25,10 @@ class App {
 
   private database () {
     mongoose.connect(process.env.MONGODB_URL)
+  }
+
+  private routes () {
+    this.express.use('/api', apiRoute)
   }
 }
 
