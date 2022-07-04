@@ -1,4 +1,4 @@
-import { Post } from '@schemas/Post'
+import { Post } from '../../schemas/Post'
 import { Request, Response } from 'express'
 
 interface RequestBody extends Request {

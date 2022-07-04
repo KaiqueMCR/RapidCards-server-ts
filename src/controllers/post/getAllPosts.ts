@@ -1,8 +1,7 @@
-import { Response } from 'express'
-import { Post } from '@schemas/Post'
+import { Post } from '../../schemas/Post'
+import { Request, Response } from 'express'
 
-export async function getAllPosts (res: Response) {
+export async function getAllPosts (req: Request, res: Response) {
   const posts = await Post.find()
-
-  return res.json(posts)
+  res.json(posts)
 }

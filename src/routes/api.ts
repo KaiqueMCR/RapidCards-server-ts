@@ -1,4 +1,4 @@
-import * as postController from '@controllers/post'
+import * as postController from '../controllers/post'
 import { Router } from 'express'
 
 const routes = Router()

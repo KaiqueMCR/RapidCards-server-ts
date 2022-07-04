@@ -11,11 +11,7 @@
     "forceConsistentCasingInFileNames": true,
     "moduleResolution": "node",
     "rootDir": "./src",
-    "outDir": "./dist",
-    "paths": {
-      "@controllers/*": ["./src/controllers/*"],
-      "@schemas/*": ["./src/schemas/*"]
-    }
+    "outDir": "./dist"
   },
   "include": ["src/**/*", "src/**/*.d.ts"],
   "exclude": ["node_modules"]
