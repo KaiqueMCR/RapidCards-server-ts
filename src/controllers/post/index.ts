@@ -1,0 +1,6 @@
+export { getAllPosts } from './getAllPosts'
+export { getPostsByTopic } from './getPostsByTopic'
+export { getPostsByAuthor } from './getPostsByAuthor'
+export { createPost } from './createPost'
+export { deletePost } from './deletePost'
+export { updatePost } from './updatePost'
