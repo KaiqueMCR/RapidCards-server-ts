@@ -28,6 +28,6 @@ export async function createPost (req: RequestBody, res: Response) {
     const newPost = await post.save()
     return res.json(newPost)
   } catch (error) {
-    res.json(error)
+    return res.json(error)
   }
 }

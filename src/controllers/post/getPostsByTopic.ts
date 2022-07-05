@@ -13,6 +13,6 @@ export async function getPostsByTopic (req: TopicsRequest, res: Response) {
     const postByTopics = await Post.find({ topics: { $in: topics } })
     return res.json(postByTopics)
   } catch (error) {
-    res.json(error)
+    return res.json(error)
   }
 }
