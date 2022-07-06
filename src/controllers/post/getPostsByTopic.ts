@@ -10,7 +10,7 @@ interface TopicsRequest extends Request {
 export async function getPostsByTopic (req: TopicsRequest, res: Response) {
   try {
     const { topics } = req.body
-    const postByTopics = await Post.find({ topics: { $in: topics } })
+    const postByTopics = await Post.find({ topics: { $in: topics } }).sort({ createdAt: -1 })
     return res.json(postByTopics)
   } catch (error) {
     return res.json(error)
