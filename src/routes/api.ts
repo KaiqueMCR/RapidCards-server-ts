@@ -4,11 +4,11 @@ import { Router } from 'express'
 const routes = Router()
 
 routes.get('/', postController.getAllPosts)
-routes.post('/', postController.createPost)
-routes.get('/topics/posts', postController.getPostsByTopic)
 routes.get('/topics', postController.getAllDifferentTopics)
+routes.get('/topics/posts', postController.getPostsByTopic)
 routes.get('/:author', postController.getPostsByAuthor)
-routes.put('/:id', postController.updatePost)
-routes.delete('/:id', postController.deletePost)
+routes.post('/', postController.createPost)
+routes.put('/:post_id', postController.updatePost)
+routes.delete('/:post_id', postController.deletePost)
 
 export default routes
