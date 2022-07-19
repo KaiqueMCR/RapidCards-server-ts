@@ -3,7 +3,7 @@ import { Request, Response } from 'express'
 
 export async function updatePost (req: Request, res: Response) {
   try {
-    const { title, content, imageURL, topics, author } = req.body
+    const { title, content, imageURL, topics, user } = req.body
     await Post.findByIdAndUpdate(
       {
         _id: req.params.post_id
@@ -13,7 +13,7 @@ export async function updatePost (req: Request, res: Response) {
         content,
         imageURL,
         topics,
-        author
+        user
       }
     )
     return res.json({ message: 'post updated successfully' })

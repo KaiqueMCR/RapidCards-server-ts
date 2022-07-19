@@ -1,0 +1,6 @@
+export { getUser } from './getUser'
+export { getAllUsers } from './getAllUsers'
+export { getPostsByUser } from './getPostsByUser'
+export { createUser } from './createUser'
+export { updateUser } from './updateUser'
+export { deleteUser } from './deleteUser'

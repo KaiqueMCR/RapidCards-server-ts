@@ -1,11 +1,12 @@
-import { Schema, model, Document } from 'mongoose'
+import { Request } from 'express'
+import mongoose, { Schema, model } from 'mongoose'
 
-interface PostInterface extends Document {
+interface PostProps extends Request {
   title: String,
   content: String,
   topics?: Array<string>,
   imageURL: string,
-  author: {
+  user: {
     name: string,
     email: string,
     avatarURL?: string,
@@ -17,13 +18,9 @@ const PostSchema = new Schema({
   content: { type: 'string', required: true },
   topics: [String],
   imageURL: { type: 'string', required: true },
-  author: {
-    name: { type: 'string', required: true },
-    email: { type: 'string', required: true },
-    avatarURL: { type: 'string' }
-  }
+  user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
 }, {
   timestamps: true
 })
 
-export const Post = model<PostInterface>('Post', PostSchema)
+export const Post = model<PostProps>('Post', PostSchema)

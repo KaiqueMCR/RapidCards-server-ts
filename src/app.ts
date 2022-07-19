@@ -4,7 +4,9 @@ import express from 'express'
 import cors from 'cors'
 import mongoose from 'mongoose'
 
-import apiRoute from './routes/api'
+import postsRoute from './routes/posts'
+import topicsRoute from './routes/topics'
+import authorRoute from './routes/users'
 
 dotenv.config()
 
@@ -28,7 +30,9 @@ class App {
   }
 
   private routes () {
-    this.express.use('/api', apiRoute)
+    this.express.use('/posts', postsRoute)
+    this.express.use('/topics', topicsRoute)
+    this.express.use('/users', authorRoute)
   }
 }
 
