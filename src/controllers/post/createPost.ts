@@ -1,6 +1,7 @@
 import { Post } from '../../schemas/Post'
 import { User } from '../../schemas/User'
 import { Request, Response } from 'express'
+import { hasUserReachedPostsLimit } from '../../validations/hasUserReachedPostsLimit'
 
 interface PostRequestBody extends Request {
   body: {
@@ -13,6 +14,10 @@ interface PostRequestBody extends Request {
 }
 
 export async function createPost (req: PostRequestBody, res: Response) {
+  const reachedPostsLimit = await hasUserReachedPostsLimit(req.body.user)
+
+  if (reachedPostsLimit) return res.status(401).send({ message: 'User reached posts limit' })
+
   try {
     const { title, content, imageURL, topics, user } = req.body
     const post = new Post({

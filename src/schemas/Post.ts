@@ -2,15 +2,11 @@ import { Request } from 'express'
 import mongoose, { Schema, model } from 'mongoose'
 
 interface PostProps extends Request {
-  title: String,
-  content: String,
-  topics?: Array<string>,
-  imageURL: string,
-  user: {
-    name: string,
-    email: string,
-    avatarURL?: string,
-  }
+  title: String;
+  content: String;
+  topics?: Array<string>;
+  imageURL: string;
+  user: mongoose.Schema.Types.ObjectId;
 }
 
 const PostSchema = new Schema({
