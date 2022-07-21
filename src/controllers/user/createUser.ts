@@ -1,6 +1,6 @@
 import { User } from '../../schemas/User'
 import { Request, Response } from 'express'
-import { userAlreadyExists } from '../../validations/userAlreadyExists'
+import { userAlreadyExists } from '../../validations'
 
 interface UserRequestBody extends Request {
   body: {
@@ -16,7 +16,7 @@ export async function createUser (req: UserRequestBody, res: Response) {
   const { alreadyExists, userID } = await userAlreadyExists(req.body.email)
 
   if (alreadyExists) {
-    return res.status(400).send({ message: 'User already exists', userID })
+    return res.status(200).send({ message: 'User already exists', userID })
   }
 
   try {

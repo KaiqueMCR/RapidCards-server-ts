@@ -1,7 +1,7 @@
 import { Post } from '../../schemas/Post'
 import { User } from '../../schemas/User'
 import { Request, Response } from 'express'
-import { hasUserReachedPostsLimit } from '../../validations/hasUserReachedPostsLimit'
+import { hasUserReachedPostsLimit } from '../../validations'
 
 interface PostRequestBody extends Request {
   body: {
