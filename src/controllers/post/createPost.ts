@@ -1,7 +1,7 @@
 import { Post } from '../../schemas/Post'
-import { User } from '../../schemas/User'
 import { Request, Response } from 'express'
 import { hasUserReachedPostsLimit } from '../../validations'
+import { updateUserPublishedPosts } from '../../utils/updateUserPublisehPosts'
 
 interface PostRequestBody extends Request {
   body: {
@@ -29,7 +29,7 @@ export async function createPost (req: PostRequestBody, res: Response) {
     })
     const newPost = await post.save()
     // @ts-ignore
-    await User.updateOne({ _id: user }, { $push: { publishedPosts: newPost._id } })
+    await updateUserPublishedPosts(user, newPost._id)
     return res.json(newPost)
   } catch (error) {
     return res.json(error)
